@@ -1,0 +1,9 @@
+$badgeBg : green #09E27C, blue #00D4EA, yellow #FFDC20;
+
+// 쉼표 하나당 두개 적었으니 변수도 두개 정해줘야함
+// each문으로 해서 각각 들어오게됨
+@each $class, $color in $badgeBg {
+    .alram-bar span.#{$class} {
+        background-color: $color;
+    }
+}

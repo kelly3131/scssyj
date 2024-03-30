@@ -1,0 +1,71 @@
+// 믹스인 자체로는 컴파일이 안일어난다. 폴더구조 잡을때 추상적인 폴더라는 이름으로 들어가는데 그 파일 안에는 컴파일 안되는 파일들이 들어갈것임
+// 믹스인은 함수라서 컴파일안됨 css는 컴파일 안되니까. 믹스인은 무조건 전역에서 쓸수있도록 해야한다.
+// reset도 컴파일안됨
+
+//***믹스인 정의***
+// @mixin 믹스인이름 { css } -> 매게변수 없이 특정 코드를 실행
+// @mixin 믹스인이름() { css } -> 매게변수 받아서 실행
+
+//***믹스인 실행***
+// @include 믹스인이름(인수)
+
+// div {
+    // background: url() no-repeat 좌표 색상; 
+    // 일반적으로 백그라운드 씀
+    // background: url() no-repeat 좌표 배경이미지크기 크기색상; 
+    // 색상은 무조건 마지막에
+    
+    // background: url() no-repeat 좌표 색상;
+    //배경이미지 믹스인은 기본으로 이거 짠다. 배경이미지크기는 안넣을때도 있으니까.
+    // background-size: 배경이미지크기;
+    // 이거쓸땐 모바일 아니면 반응형이다. 유연하게 크기조절할때 사용.
+// }
+
+@mixin background($image, $coordinate: null, $color: null, $size: null){
+    // 선택자 안쓰고 인클루드만 넣는다
+    background: url(#{$imgUrl}#{$image}) no-repeat $coordinate $color;
+    //그때그때 이미지 경로가 바뀔거니 변수를 넣어준다. $image라는 매개변수로 받을거다
+    //no-repeat는 변경없이 무조건 들어가니까 인수로 안넣을거임
+    //문자보관 안에 
+    background-size: $size;
+    // : null 을 뒤에 쓰면 기본값이 된다. 안넣으면 null값으로 들어간다.
+    //이거 안하면 @include에서 null넣어야한다.
+            //빈값으로 null 넣으면 표현이 안된다. 아예 안넣으면 오류난다. null은 의도한 빈값. undifined는 의도하지 않은 빈값.
+}
+
+// @include background('ico.svg', right 20px bottom 20px, $green09, 20px auto);
+//쉼표로 인수값이 들어가니 띄어쓰기 한칸은 상관없음. 그냥 두면 오류남 0 이라도 줘야해.
+
+//믹스인과 함수의 다른점은 return이 없다. 유사하지만 return이 있고 없고 차이가 있다.
+
+@mixin box($borderColor, $radius, $padding, $shadow: null) {
+    border: 1px solid $borderColor;
+    border-radius: $radius;
+    padding: $padding;
+    box-shadow: $shadow;
+    //쉼표 들어간다면 " 쌍따옴표. (??)
+    //box-shadow는 안들어갈수도 있으니.
+
+}
+
+@mixin box2($map, $firstKey) {
+    border: 1px solid map-get($map, $firstKey, borderColor);
+    border-radius: map-get($map, $firstKey, radius);
+    padding: map-get($map, $firstKey, padding);
+    box-shadow: map-get($map, $firstKey, shadow);
+} 
+
+//모바일 전용 미디어쿼리
+@mixin mobile {
+    @media (width < $mobileSize) {
+        @content;
+        //@content는 mixin에서만 쓸 수 있다.
+    
+    }
+}
+@mixin tablet {
+    @media (width < $tabletSize) {
+        @content;
+    
+    }
+}

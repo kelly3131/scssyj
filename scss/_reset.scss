@@ -1,0 +1,13 @@
+* {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-decoration: none;
+}
+a {
+    color: inherit;
+    //부모로부터 상속받도록
+}
+body {
+    padding: 30px;
+}

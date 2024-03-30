@@ -1,0 +1,11 @@
+%form {
+    border: 1px solid lightgray;
+    border-radius: 4px;
+    color: dimgray;
+    min-height: 30px;
+    // @include mobile {
+    //     color: pink;
+    // }
+    // 반응형할 때 mobile include해서 한벌 로 만들어도 됨
+}
+

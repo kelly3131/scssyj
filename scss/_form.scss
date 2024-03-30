@@ -1,0 +1,20 @@
+//input에서 check, radio는 제외시켜야한다면
+input:not([type="checkbox"],[type="radio"]) {
+    @extend %form;
+    //오남용하면 코드 꼬이니, 정말 공통으로 묶을것만 해라.
+}
+
+select {
+    //배경없애기, 화살표디자인 css...
+    @extend %form;
+}
+
+textarea {
+    height: 100px;
+    @extend %form;
+}
+//form이나 margin: 0 auto에만 쓴다. class="form"쓰면 되지만 이렇게 하기 싫을때 쓴다. 
+//extend는 .이 아닌 %로 이름을 정의한다. (%form) 클래스로 할거면 클래스로 묶으면되니까.
+//sass메모리에만 남아있고 class로 남겨지진않다. %도 추상적이다. 컴파일되지 않기때문
+//extend나 mixin은 위에 쓴다. 추가로 변경시키고싶은게 있을 수 있으니.
+

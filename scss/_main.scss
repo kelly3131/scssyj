@@ -1,0 +1,33 @@
+.alram-bar {
+    display:flex;
+    align-items: center;
+    gap: 8px;
+    background: url(#{$imgUrl}ico_arrow_right_white.svg) no-repeat right 12px center $black1e;
+    // no-repeat 반복안하고 right 오른쪽에 위치하는데 12px 오른쪽으로부터 12px떨어지고 center 가운데에 위치 $black1e;
+    font-size: 13px;
+    height: 38px;
+    border-radius: 38px;
+    // 둥글게 하려면 높이값과 같게해라 (공식)
+    padding: 8px;
+    box-sizing: border-box;
+    color:#fff;
+}
+
+.alram-bar span {
+    padding: 0 9px;
+    height: 22px;
+    line-height: 22px;
+    // 폰트 중앙정렬하려면 높이와 라인하이트 같게(공식)
+    // line-height는 block요소만 가능. flex로 블럭요소가 돼서 적용된거임(아마 인라인블럭)
+    border-radius: 22px;
+    color: $black1e;
+    background: $green09;
+    font-size: 13px;
+    // &는 뒤에 단어랑 붙여쓰겠다는 뜻 .alram-bar span.yellow가 되는것
+    &.yellow {
+        background-color: yellow;
+    }
+}
+
+
+

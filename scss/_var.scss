@@ -1,0 +1,40 @@
+$red: red;
+$fs20: 20px;
+$space: 100px;
+$mt100: $space;
+$pt100: $space;
+$black1e: #1E2530;
+$white: #fff;
+$green09: #09E27C;
+$radius38: 38px;
+$radius22: 22px;
+$grayca: #cacaca;
+
+
+
+
+// 문자열로 만들기 #{}. "", ''로 감싸야한다. 숫자는 숫자로 인식함. 그래서 수식계산도 가능함
+$imgUrl: "../images/";
+$imgIco: "../images/ico";
+$imgBg: "../images/bg";
+
+$yellow: yellow;
+$yellowff: #ffdc20;
+$blue00: #00d4ea;
+$bc: background-color;
+$mobileSize : 768px;
+$tabletSize : 1024px;
+// url(#{$imgUrl} $는 스크립트에서 쓰니까 #{}를 추가하는것
+// 선택자는 #{$imgUrl}로 써라
+
+div {
+
+    margin-top: $mt100;
+    padding-top: $pt100;
+    // 디쟌시스템으로 공통 패딩 변수로 만들면 되겠다
+    color: $red;
+    font-size: $fs20;
+    
+}
+
+

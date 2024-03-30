@@ -1,0 +1,12 @@
+@import 'var';//변수정의
+@import 'mixin';//함수
+@import 'extend';
+@import 'reset';//reset
+@import 'text';//텍스트 정의
+@import 'space';//여백 정의
+@import 'badge';//여백 정의
+@import 'card';//카드
+@import 'form';//온라인서식
+
+//페이지는 마지막으로 우선순위 정리
+@import 'main';
